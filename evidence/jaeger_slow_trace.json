@@ -1,0 +1,185 @@
+[
+ {
+  "traceId": "aa3123169769994f14728f924c70a1af",
+  "spanId": "cdb8d4d240a71890",
+  "flags": 256,
+  "name": "POST /ask",
+  "kind": 2,
+  "startTimeUnixNano": "1795689121594742810",
+  "endTimeUnixNano": "1795689123305549983",
+  "attributes": [
+   {
+    "key": "http.flavor",
+    "value": {
+     "stringValue": "1.1"
+    }
+   },
+   {
+    "key": "http.host",
+    "value": {
+     "stringValue": "172.19.0.8:8000"
+    }
+   },
+   {
+    "key": "http.method",
+    "value": {
+     "stringValue": "POST"
+    }
+   },
+   {
+    "key": "http.route",
+    "value": {
+     "stringValue": "/ask"
+    }
+   },
+   {
+    "key": "http.scheme",
+    "value": {
+     "stringValue": "http"
+    }
+   },
+   {
+    "key": "http.server_name",
+    "value": {
+     "stringValue": "nginx"
+    }
+   },
+   {
+    "key": "http.status_code",
+    "value": {
+     "intValue": "200"
+    }
+   },
+   {
+    "key": "http.target",
+    "value": {
+     "stringValue": "/ask"
+    }
+   },
+   {
+    "key": "http.url",
+    "value": {
+     "stringValue": "http://nginx/ask"
+    }
+   },
+   {
+    "key": "http.user_agent",
+    "value": {
+     "stringValue": "python-requests/2.34.2"
+    }
+   },
+   {
+    "key": "net.host.port",
+    "value": {
+     "intValue": "8000"
+    }
+   },
+   {
+    "key": "net.peer.ip",
+    "value": {
+     "stringValue": "172.19.0.7"
+    }
+   },
+   {
+    "key": "net.peer.port",
+    "value": {
+     "intValue": "41148"
+    }
+   }
+  ],
+  "status": {}
+ },
+ {
+  "traceId": "aa3123169769994f14728f924c70a1af",
+  "spanId": "f977171e01a1db96",
+  "parentSpanId": "cdb8d4d240a71890",
+  "flags": 256,
+  "name": "agent.run",
+  "kind": 1,
+  "startTimeUnixNano": "1795689121596557950",
+  "endTimeUnixNano": "1795689123303180067",
+  "attributes": [
+   {
+    "key": "agent.question.length",
+    "value": {
+     "intValue": "23"
+    }
+   },
+   {
+    "key": "agent.version",
+    "value": {
+     "stringValue": "v2"
+    }
+   }
+  ],
+  "status": {}
+ },
+ {
+  "traceId": "aa3123169769994f14728f924c70a1af",
+  "spanId": "663ba1fec2b678fd",
+  "parentSpanId": "f977171e01a1db96",
+  "flags": 256,
+  "name": "agent.retrieve_context",
+  "kind": 1,
+  "startTimeUnixNano": "1795689121596617034",
+  "endTimeUnixNano": "1795689121615091435",
+  "attributes": [
+   {
+    "key": "retrieval.documents",
+    "value": {
+     "intValue": "1"
+    }
+   }
+  ],
+  "status": {}
+ },
+ {
+  "traceId": "aa3123169769994f14728f924c70a1af",
+  "spanId": "db73838ff2832eba",
+  "parentSpanId": "f977171e01a1db96",
+  "flags": 256,
+  "name": "chat mock-llm-small",
+  "kind": 1,
+  "startTimeUnixNano": "1795689121615383182",
+  "endTimeUnixNano": "1795689123302984975",
+  "attributes": [
+   {
+    "key": "gen_ai.operation.name",
+    "value": {
+     "stringValue": "chat"
+    }
+   },
+   {
+    "key": "gen_ai.provider.name",
+    "value": {
+     "stringValue": "mock"
+    }
+   },
+   {
+    "key": "gen_ai.request.model",
+    "value": {
+     "stringValue": "mock-llm-small"
+    }
+   },
+   {
+    "key": "gen_ai.usage.input_tokens",
+    "value": {
+     "intValue": "72"
+    }
+   },
+   {
+    "key": "gen_ai.usage.output_tokens",
+    "value": {
+     "intValue": "40"
+    }
+   },
+   {
+    "key": "llm.cost_usd",
+    "value": {
+     "doubleValue": 3.479999999999999e-05
+    }
+   }
+  ],
+  "status": {}
+ }
+]
