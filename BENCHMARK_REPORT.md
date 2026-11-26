@@ -4,7 +4,7 @@
 **Ngày chạy:** 2026-11-26
 **Môi trường:** Windows 11 Pro, Python 3.12, Docker Desktop (Linux containers). Stack Part 7 giới hạn mỗi agent 0.5 CPU / 256 MB.
 
-> **Trung thực về bằng chứng:** các số liệu dưới đây lấy từ `reports/*.json`, `benchmark-results/*.csv` và `evidence/*`. **Chưa có ảnh chụp màn hình (PNG)** vì phiên làm việc này không có trình duyệt; thay vào đó có dữ liệu thô tương ứng trong `evidence/` (xem mục 4.1). Cần tự chụp 4 ảnh ghi ở mục 4.1 trước khi nộp.
+> **Bằng chứng:** các số liệu dưới đây lấy từ `reports/*.json`, `benchmark-results/*.csv` và `evidence/*`. Ảnh chụp màn hình nằm trong `screenshots/` (chụp tự động bằng Microsoft Edge chế độ headless, nên ảnh không có thanh địa chỉ).
 
 ---
 
@@ -76,12 +76,12 @@ Từ khóa kích hoạt `jwt` và `hpa` chỉ xuất hiện trong đúng hai câ
 
 ### 4.1 Screenshot
 
-Chưa có PNG (không có trình duyệt trong phiên này). Dữ liệu thô tương ứng đã lưu trong `evidence/`:
+- [x] Dashboard Grafana khi đang có tải: [screenshots/grafana-dashboard.png](screenshots/grafana-dashboard.png). Chụp lúc đang chạy thí nghiệm A (`MOCK_ERROR_RATE=0.2`) với 8 người dùng ảo: panel *Error rate* đỏ (23,39 %), biểu đồ *Requests/s theo status code* có đường 503, *Instances up* = 2
+- [x] Một trace chậm trong Jaeger: [screenshots/jaeger-slow-trace.png](screenshots/jaeger-slow-trace.png), trace `aa3123169769994f14728f924c70a1af`, 1,7 s, span `chat mock-llm-small` chiếm gần hết thời gian
+- [x] Một trace lỗi trong Jaeger: [screenshots/jaeger-error-trace.png](screenshots/jaeger-error-trace.png), trace `f1282f5719f09ed1d4ba9d3ac157ac2d`, `POST /ask` trả 503, các span lỗi có biểu tượng đỏ (event `exception` xem trong `evidence/jaeger_error_trace.json`)
+- [x] Trang Alerts của Prometheus có alert **firing**: [screenshots/prometheus-alert-firing.png](screenshots/prometheus-alert-firing.png), `AgentHighErrorRate` ở trạng thái FIRING (lần chạy lại thí nghiệm A để chụp: firing sau 94 s, khớp 97 s ở bảng 4.2)
 
-- [ ] Dashboard Grafana khi đang có tải → **cần tự chụp** (mở http://localhost:3000, stack đang chạy với 8 người dùng ảo từ Locust)
-- [ ] Một trace chậm trong Jaeger → **cần tự chụp**; dữ liệu: `evidence/jaeger_slow_trace.json` (trace_id ở mục 4.3)
-- [ ] Một trace lỗi trong Jaeger → **cần tự chụp**; dữ liệu: `evidence/jaeger_error_trace.json`
-- [ ] Trang Alerts của Prometheus có alert **firing** → **cần tự chụp**; dữ liệu: `evidence/alerts_A.json`, `alerts_B.json`, `alerts_C.json`, `alerts_D.json` (mỗi file chụp lúc alert chuyển sang firing)
+Dữ liệu thô tương ứng: `evidence/alerts_A.json` … `alerts_E.json`, `evidence/jaeger_*`.
 
 ### 4.2 Thí nghiệm "phá hệ thống"
 
