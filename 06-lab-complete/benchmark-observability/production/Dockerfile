@@ -17,7 +17,9 @@ RUN groupadd -r agent && useradd -r -g agent -d /app agent
 
 WORKDIR /app
 
-COPY --from=builder /root/.local /home/agent/.local
+# Home của user `agent` là /app (useradd -d /app) → Python tìm user-site ở /app/.local,
+# nên phải copy dependencies vào đó (copy sang /home/agent/.local sẽ gây ModuleNotFoundError).
+COPY --from=builder /root/.local /app/.local
 COPY app/ ./app/
 COPY utils/ ./utils/
 
@@ -25,7 +27,7 @@ RUN chown -R agent:agent /app
 
 USER agent
 
-ENV PATH=/home/agent/.local/bin:$PATH
+ENV PATH=/app/.local/bin:$PATH
 ENV PYTHONPATH=/app
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
